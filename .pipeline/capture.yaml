@@ -15,7 +15,7 @@ stages:
       - job: capture_dev_portal_config
         displayName: Capture developer portal config
         pool:
-          vmImage: ubuntu-latest
+          name: DevOps-AzurePipelines-Ubuntu2204
         steps:
           - task: AzureCLI@2
             displayName: Set extraction variables
@@ -75,7 +75,7 @@ stages:
       - job: create_artifacts_pull_request
         displayName: Create artifacts pull request
         pool:
-          vmImage: windows-latest
+          name: DevOps-AzurePipelines-windows2022
         steps:
           - task: DownloadPipelineArtifact@2
             displayName: Download pipeline artifact
