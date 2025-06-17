@@ -45,21 +45,6 @@
          example: 'UA-XXXXXXX-X',
          demandOption: true
      })
-         .option('tenantId', {
-        type: 'string',
-        description: 'tenant ID.',
-        demandOption: false
-    })
-    .option('servicePrincipal', {
-        type: 'string',
-        description: 'service principal ID.',
-        demandOption: false
-    })
-    .option('servicePrincipalSecret', {
-        type: 'string',
-        description: 'service principal secret.',
-        demandOption: false
-    })
      .help()
      .argv;
  
@@ -68,9 +53,9 @@
          yargs.subscriptionId,
          yargs.resourceGroupName,
          yargs.serviceName,
-         yargs.tenantId, 
-         yargs.servicePrincipal, 
-         yargs.servicePrincipalSecret,
+         null,
+         null,
+         null,
          null,
      );
  
