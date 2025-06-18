@@ -15,8 +15,7 @@ steps:
 
   # - checkout: self
   #   fetchDepth: 0
-
-  - checkout: 'git://API%20Management/apim-dev-portal-experimental'
+  - checkout: 'git://apim-dev-portal-experimental'
     persistCredentials: true
 
   - task: AzureCLI@2
