@@ -7,13 +7,13 @@ parameters:
     displayName: Folder path to look for the snapshot folder 
     default: artifacts
 
-trigger:
-  branches:
-    include:
-      - main
-  paths:
-    exclude:
-    - scripts.v3/*
+trigger: none
+  # branches:
+  #   include:
+  #     - main
+  # paths:
+  #   exclude:
+  #   - scripts.v3/*
 
 stages:
 - ${{ each environment in parameters.environments }}: 

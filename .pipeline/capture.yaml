@@ -25,13 +25,9 @@ stages:
               scriptLocation: inlineScript
               inlineScript: >
                 Set-StrictMode -Version Latest
-
                 $ErrorActionPreference = "Stop"
-
                 $VerbosePreference = "Continue"
-
                 $InformationPreference = "Continue"
-
 
                 Write-Host "##vso[task.setvariable
                 issecret=true;variable=AZURE_BEARER_TOKEN]$(az account
@@ -56,9 +52,6 @@ stages:
             displayName: Npm Install command
             inputs:
               command: "install"
-
-          - script: env | sort
-            displayName: Print environment variables
 
           - pwsh: |
               node ./capture --subscriptionId  "$(AZURE_SUBSCRIPTION_ID)" --resourceGroupName "$(RESOURCE_GROUP_NAME)" --serviceName "$(APIM_INSTANCE_NAME)" --tenantId "$(AZURE_TENANT_ID)" --servicePrincipal "$(AZURE_CLIENT_ID)"  --servicePrincipalSecret "$(AZURE_CLIENT_SECRET)"  --folder "$(Build.ArtifactStagingDirectory)/snapshot"   
