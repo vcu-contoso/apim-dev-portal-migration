@@ -29,7 +29,7 @@ stages:
         pool:
           name: DevOps-AzurePipelines-Ubuntu2204
         # creates an environment if it doesn't exist
-        environment: $(ADO_ENVIRONMENT)
+        environment: "appdev01-vy" #$(ADO_ENVIRONMENT)
         strategy:
           # default deployment strategy, more coming...
           runOnce:
