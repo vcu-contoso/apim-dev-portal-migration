@@ -13,9 +13,11 @@ steps:
   - script: echo Provided SERVICE CONNECTION was $(SERVICE_CONNECTION_NAME)
     displayName: Print the name of the SERVICE CONNECTION    
 
-  # - checkout: self
-  #   fetchDepth: 0
-  - checkout: 'git://apim-dev-portal-experimental'
+  - checkout: self
+    fetchDepth: 0
+    persistCredentials: true
+
+  - checkout: 'git://API%20Management/apim-dev-portal-experimental'
     persistCredentials: true
 
   - task: AzureCLI@2
