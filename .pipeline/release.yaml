@@ -1,7 +1,9 @@
 parameters:
   - name: environments 
     type: object
-    default: ["appdev"] 
+    default: 
+      - 'appdev' 
+
   - name: OUTPUT_FOLDER_PATH
     type: string
     displayName: Folder path to look for the snapshot folder 
@@ -20,7 +22,7 @@ stages:
   - stage: "${{ environment }}_deploy"
     displayName: "Release developer portal config to ${{ environment }}"
     variables:
-      - group: "apim-dev-portal-appdev" #apim-dev-portal-${{ environment }}"       
+      - group: "apim-dev-portal-${{ environment }}"       
     jobs:
       - deployment: release_dev_portal
         displayName: Release Dev Portal
