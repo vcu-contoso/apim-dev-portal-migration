@@ -1,7 +1,7 @@
 parameters:
   - name: environments 
     type: object
-    default: ["dev"] 
+    default: ["appdev"] 
   - name: OUTPUT_FOLDER_PATH
     type: string
     displayName: Folder path to look for the snapshot folder 
@@ -23,11 +23,11 @@ stages:
       - deployment: release_dev_portal
         displayName: Release Dev Portal
         pool:
-          vmImage: ubuntu-latest
+          name: DevOps-AzurePipelines-Ubuntu2204
         variables:
         - group: "apim-dev-portal-${{ environment }}"       
         # creates an environment if it doesn't exist
-        environment: "apim-dev-portal-${{ environment }}"
+        environment: "$(ADO_ENVIRONMENT)"
         strategy:
           # default deployment strategy, more coming...
           runOnce:
