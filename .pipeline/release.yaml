@@ -19,15 +19,15 @@ stages:
 - ${{ each environment in parameters.environments }}: 
   - stage: "${{ environment }}_deploy"
     displayName: "Release developer portal config to ${{ environment }}"
+    variables:
+      - group: "apim-dev-portal-${{ environment }}"       
     jobs:
       - deployment: release_dev_portal
         displayName: Release Dev Portal
         pool:
           name: DevOps-AzurePipelines-Ubuntu2204
-        variables:
-        - group: "apim-dev-portal-${{ environment }}"       
         # creates an environment if it doesn't exist
-        environment: "$(ADO_ENVIRONMENT)"
+        environment: $(ADO_ENVIRONMENT)
         strategy:
           # default deployment strategy, more coming...
           runOnce:
