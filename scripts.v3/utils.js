@@ -107,7 +107,10 @@ class HttpClient {
 
     getAccessToken(tenantId, servicePrincipal, secret) {
         if (tenantId != "" && tenantId != null) {
-            execSync(`az login --service-principal --username ` + servicePrincipal + ` --password ` + secret + ` --tenant ` + tenantId);
+            /**
+             * execSync(`az login --service-principal --username ` + servicePrincipal + ` --password ` + secret + ` --tenant ` + tenantId);
+            */ 
+            execSync(`az login --federated-token ` + secret + ` --service-principal --username ` + servicePrincipal + ` --tenant ` + tenantId);
         }
 
         const accessToken = execSync(`az account get-access-token --resource-type arm --output tsv --query accessToken`).toString().trim();
