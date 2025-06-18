@@ -19,7 +19,7 @@ steps:
   - task: AzureCLI@2
     displayName: Set extraction variables
     inputs:
-      azureSubscription: $(SERVICE_CONNECTION_NAME)
+      azureSubscription: 'sc-appdev01-vy-admin-wif-API_Management' # $(SERVICE_CONNECTION_NAME)
       scriptType: pscore
       scriptLocation: inlineScript
       inlineScript: >
